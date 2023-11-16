@@ -9,4 +9,4 @@ Each participant attempts to beat the dealer by getting a count as close to 21 a
 ## Card Values/scoring :dart:
 It is up to each individual player if an ace is worth 1 or 11. Face cards are 10 and any other card is its pip value.
 
-## [Algs 4 documentation](https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/DrawListener.html)
+## [Algs 4 documentation](https://algs4.cs.princeton.edu/code/javadoc/edu/princeton/cs/algs4/package-summary.html)

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifc.blackjack.Play">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imgs/background.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="150.0" prefHeight="720.0" prefWidth="480.0" style="-fx-background-color: #EAEAEA;">
+         <children>
+            <Text layoutX="120.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="JOGADOR">
+               <font>
+                  <Font name="Calibri" size="60.0" />
+               </font>
+            </Text>
+            <Pane layoutX="30.0" layoutY="215.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #D1D1D1;">
+               <children>
+                  <Text fx:id="player_points" layoutX="67.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                     <font>
+                        <Font name="System Bold" size="115.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane layoutX="251.0" layoutY="215.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-radius: 30px; -fx-border-style: none; -fx-background-color: green;">
+               <children>
+                  <ImageView fx:id="current_card" fitHeight="150.0" fitWidth="200.0" layoutX="48.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imgs/fundo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Button fx:id="btn_ask_card" layoutX="113.0" layoutY="483.0" mnemonicParsing="false" onAction="#askCard" style="-fx-background-color: #1B3F4E;" text="PEDIR CARTA" textFill="#eaeaea">
+               <font>
+                  <Font name="Calibri Bold" size="37.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_pass" layoutX="106.0" layoutY="574.0" mnemonicParsing="false" onAction="#passTurn" style="-fx-background-color: #1B3F4E;" text="PASSAR A VEZ" textFill="#eaeaea">
+               <font>
+                  <Font name="Calibri Bold" size="37.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="650.0" prefHeight="720.0" prefWidth="480.0" style="-fx-background-color: #EAEAEA;">
+         <children>
+            <Text layoutX="169.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MESA">
+               <font>
+                  <Font name="Calibri" size="60.0" />
+               </font>
+            </Text>
+            <Button fx:id="btn_reset" layoutX="137.0" layoutY="483.0" mnemonicParsing="false" onAction="#resetGame" style="-fx-background-color: #1B3F4E;" text="REINICIAR" textFill="#eaeaea">
+               <font>
+                  <Font name="Calibri Bold" size="37.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_menu" layoutX="71.0" layoutY="574.0" mnemonicParsing="false" onAction="#goBackMenu" style="-fx-background-color: #1B3F4E;" text="VOLTAR AO MENU" textFill="#eaeaea">
+               <font>
+                  <Font name="Calibri Bold" size="37.0" />
+               </font>
+            </Button>
+            <Pane layoutX="30.0" layoutY="215.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #D1D1D1;">
+               <children>
+                  <Text fx:id="player_points1" layoutX="67.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                     <font>
+                        <Font name="System Bold" size="115.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane layoutX="251.0" layoutY="215.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-radius: 30px; -fx-border-style: none; -fx-background-color: green;">
+               <children>
+                  <Text fx:id="turn_definer" fill="#eaeaea" layoutX="53.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WAIT YOUR TURN" textOrigin="CENTER" wrappingWidth="123.3057861328125">
+                     <font>
+                        <Font name="Calibri" size="40.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>

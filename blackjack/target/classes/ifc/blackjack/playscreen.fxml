@@ -8,7 +8,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifc.blackjack.Play">
    <children>
       <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
@@ -16,7 +15,7 @@
             <Image url="@imgs/background.jpg" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="150.0" prefHeight="720.0" prefWidth="480.0" style="-fx-background-color: #EAEAEA;">
+      <AnchorPane layoutX="150.0" prefHeight="720.0" prefWidth="480.0" style="-fx-background-color: rgba(234, 234, 234, 0.9);">
          <children>
             <Text layoutX="120.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="JOGADOR">
                <font>
@@ -53,7 +52,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="650.0" prefHeight="720.0" prefWidth="480.0" style="-fx-background-color: #EAEAEA;">
+      <AnchorPane layoutX="650.0" prefHeight="720.0" prefWidth="480.0" style="-fx-background-color: rgba(234, 234, 234, 0.9);">
          <children>
             <Text layoutX="169.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MESA">
                <font>

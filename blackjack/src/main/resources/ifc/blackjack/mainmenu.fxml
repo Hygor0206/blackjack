@@ -47,7 +47,7 @@
             <Image url="@imgs/background.jpg" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="533.0" prefHeight="720.0" prefWidth="663.0" style="-fx-background-color: rgba(234, 234, 234, 0.9);">
+      <AnchorPane layoutX="530.0" prefHeight="720.0" prefWidth="663.0" style="-fx-background-color: rgba(234, 234, 234, 0.9);">
          <children>
             <Text layoutX="59.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BLACK JACK">
                <font>

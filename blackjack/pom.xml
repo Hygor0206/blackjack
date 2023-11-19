@@ -41,6 +41,9 @@
                         <!-- Usage: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
+                            <launcher>blackjack</launcher>
+                            <jlinkImageName>blackjack</jlinkImageName>
+                            <jlinkZipName>BlackJack</jlinkZipName>
                             <mainClass>ifc.blackjack.App</mainClass>
                         </configuration>
                     </execution>

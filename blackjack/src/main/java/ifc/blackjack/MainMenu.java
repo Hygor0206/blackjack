@@ -2,6 +2,7 @@ package ifc.blackjack;
 
 import java.io.IOException;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -23,13 +24,13 @@ public class MainMenu {
     }
 
     @FXML
-    void rules(ActionEvent event) {
-
+    void rules(ActionEvent event) throws IOException{
+        App.setRoot("rules");
     }
 
     @FXML
     void close(ActionEvent event) {
-
+        Platform.exit();
     }
 
 }

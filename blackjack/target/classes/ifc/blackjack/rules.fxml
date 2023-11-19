@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ifc.blackjack.Rules">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+         <image>
+            <Image url="@imgs/background.jpg" />
+         </image>
+         <rotationAxis>
+            <Point3D z="-1.0" />
+         </rotationAxis>
+      </ImageView>
+      <AnchorPane layoutX="87.0" prefHeight="720.0" prefWidth="683.0" style="-fx-background-color: rgba(234, 234, 234, 0.9);">
+         <children>
+            <Text layoutX="87.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="509.4541015625">
+               <font>
+                  <Font name="Calibri" size="39.0" />
+               </font>
+            </Text>
+            <Text layoutX="76.0" layoutY="483.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3. As cartas de 2 a 10 valem o seu valor nominal, as figuras valem 10 e o ás vale 1 ou 11, dependendo da conveniência do jogador." wrappingWidth="530.4541015625">
+               <font>
+                  <Font name="Calibri" size="27.0" />
+               </font>
+            </Text>
+            <Text layoutX="76.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1. Jogo consiste de um jogador e o dealer, ambos precisam chegar o mais próximo do número 21" wrappingWidth="530.4541015625">
+               <font>
+                  <Font name="Calibri" size="27.0" />
+               </font>
+            </Text>
+            <Text layoutX="76.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2. Jogador pode escolher entre pedir mais uma carta ou finalizar seu turno, assim que finalizado, é comparado a mão do jogador com o dealer, se o jogador estiver mais próximo do 21, ele ganha, se for o dealer, o jogador perde " wrappingWidth="530.4541015625">
+               <font>
+                  <Font name="Calibri" size="27.0" />
+               </font>
+            </Text>
+            <Text layoutX="76.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COMO FUNCIONA">
+               <font>
+                  <Font name="Calibri Bold" size="61.0" />
+               </font>
+            </Text>
+            <Button fx:id="btn_menu" layoutX="76.0" layoutY="596.0" mnemonicParsing="false" onAction="#menu" style="-fx-background-color: #1B3F4E;" text="VOLTAR AO MENU" textAlignment="RIGHT" textFill="#eaeaea">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>

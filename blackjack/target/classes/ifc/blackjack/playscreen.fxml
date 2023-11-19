@@ -42,12 +42,12 @@
             </Pane>
             <Button fx:id="btn_ask_card" layoutX="113.0" layoutY="483.0" mnemonicParsing="false" onAction="#askCard" style="-fx-background-color: #1B3F4E;" text="PEDIR CARTA" textFill="#eaeaea">
                <font>
-                  <Font name="Calibri Bold" size="37.0" />
+                  <Font name="Calibri Bold" size="25.0" />
                </font>
             </Button>
             <Button fx:id="btn_pass" layoutX="63.0" layoutY="574.0" mnemonicParsing="false" onAction="#passTurn" prefHeight="68.0" prefWidth="355.0" style="-fx-background-color: #1B3F4E;" text="TERMINAR TURNO" textFill="#eaeaea">
                <font>
-                  <Font name="Calibri Bold" size="37.0" />
+                  <Font name="Calibri Bold" size="25.0" />
                </font>
             </Button>
          </children>
@@ -61,12 +61,12 @@
             </Text>
             <Button fx:id="btn_reset" layoutX="137.0" layoutY="483.0" mnemonicParsing="false" onAction="#resetGame" style="-fx-background-color: #1B3F4E;" text="REINICIAR" textFill="#eaeaea">
                <font>
-                  <Font name="Calibri Bold" size="37.0" />
+                  <Font name="Calibri Bold" size="25.0" />
                </font>
             </Button>
             <Button fx:id="btn_menu" layoutX="71.0" layoutY="574.0" mnemonicParsing="false" onAction="#goBackMenu" style="-fx-background-color: #1B3F4E;" text="VOLTAR AO MENU" textFill="#eaeaea">
                <font>
-                  <Font name="Calibri Bold" size="37.0" />
+                  <Font name="Calibri Bold" size="25.0" />
                </font>
             </Button>
             <Pane layoutX="30.0" layoutY="215.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #D1D1D1;">

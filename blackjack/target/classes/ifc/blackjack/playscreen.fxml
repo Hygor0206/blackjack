@@ -45,7 +45,7 @@
                   <Font name="Calibri Bold" size="37.0" />
                </font>
             </Button>
-            <Button fx:id="btn_pass" layoutX="106.0" layoutY="574.0" mnemonicParsing="false" onAction="#passTurn" style="-fx-background-color: #1B3F4E;" text="PASSAR A VEZ" textFill="#eaeaea">
+            <Button fx:id="btn_pass" layoutX="63.0" layoutY="574.0" mnemonicParsing="false" onAction="#passTurn" prefHeight="68.0" prefWidth="355.0" style="-fx-background-color: #1B3F4E;" text="TERMINAR TURNO" textFill="#eaeaea">
                <font>
                   <Font name="Calibri Bold" size="37.0" />
                </font>
@@ -71,7 +71,7 @@
             </Button>
             <Pane layoutX="30.0" layoutY="215.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #D1D1D1;">
                <children>
-                  <Text fx:id="player_points1" layoutX="67.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                  <Text fx:id="player_points1" layoutX="75.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="?">
                      <font>
                         <Font name="System Bold" size="115.0" />
                      </font>
@@ -80,9 +80,9 @@
             </Pane>
             <Pane layoutX="251.0" layoutY="215.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-radius: 30px; -fx-border-style: none; -fx-background-color: green;">
                <children>
-                  <Text fx:id="turn_definer" fill="#eaeaea" layoutX="53.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WAIT YOUR TURN" textOrigin="CENTER" wrappingWidth="123.3057861328125">
+                  <Text fx:id="turn_definer" fill="#eaeaea" layoutX="38.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GANHOU/PERDEU" textOrigin="CENTER" wrappingWidth="123.3057861328125">
                      <font>
-                        <Font name="Calibri" size="40.0" />
+                        <Font name="Calibri" size="30.0" />
                      </font>
                   </Text>
                </children>

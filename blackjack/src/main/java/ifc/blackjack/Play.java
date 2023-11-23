@@ -9,6 +9,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
@@ -80,6 +81,9 @@ public class Play {
     private void drawDealerCard() {
         int cardValue = deck.remove(0);
         dealerScore += cardValue;
+
+        updateCardImage(cardValue);
+
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -94,6 +98,8 @@ public class Play {
         int cardValue = deck.remove(0);
         updatePlayerScore(cardValue);
 
+        updateCardImage(cardValue);
+
         if (playerScore > 21) {
             turn_definer.setText("Player Busted! Dealer Wins!");
             endGame();
@@ -101,6 +107,17 @@ public class Play {
             btn_ask_card.setDisable(false);
             drawDealerCard();
         }
+    }
+
+    private void updateCardImage(int cardValue) {
+        String cardFileName;
+        if (cardValue >= 2 && cardValue <= 10) {
+            cardFileName = cardValue + "c.png";
+        } else {
+            cardFileName = "10c.png";
+        }
+        Image cardImage = new Image(getClass().getResourceAsStream("/imgs/" + cardFileName));
+        current_card.setImage(cardImage);
     }
 
     @FXML

@@ -134,8 +134,6 @@ public class Play {
             updateTablePoints();
             turn_definer.setText("MESA VENCEU");
             endGame();
-        }else{
-            drawDealerCard();
         }
     }
 

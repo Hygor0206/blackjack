@@ -41,56 +41,46 @@ public class Play {
     @FXML
     private Text turn_definer;
 
-    private List<Integer> deck;
-    private int playerScore;
-    private int dealerScore;
+    private Deck deck = new Deck();
+    private Player player = new Player();
+    private Player dealer = new Player();
 
     public Play() {
-        initializeDeck();
-        playerScore = 0;
-        dealerScore = 0;
+        
     }
 
-    private void initializeDeck() {
-        deck = new ArrayList<>();
-        for (int i = 1; i <= 13; i++) {
-            deck.add(i);
-        }
-        shuffleDeck();
-    }
+    // private void initializeDeck() {
+    //     deck = new ArrayList<>();
+    //     for (int i = 1; i <= 13; i++) {
+    //         deck.add(i);
+    //     }
+    //     shuffleDeck();
+    // }
 
-    private void shuffleDeck() {
-        Random rand = new Random();
-        for (int i = 0; i < deck.size(); i++) {
-            int randomIndex = i + rand.nextInt(deck.size() - i);
-            int temp = deck.get(i);
-            deck.set(i, deck.get(randomIndex));
-            deck.set(randomIndex, temp);
-        }
-    }
+    // private void shuffleDeck() {
+    //     Random rand = new Random();
+    //     for (int i = 0; i < deck.size(); i++) {
+    //         int randomIndex = i + rand.nextInt(deck.size() - i);
+    //         int temp = deck.get(i);
+    //         deck.set(i, deck.get(randomIndex));
+    //         deck.set(randomIndex, temp);
+    //     }
+    // }
 
-    private void updatePlayerScore(int cardValue) {
-        playerScore += cardValue;
-        if(playerScore >= 10) {
-            player_points.setLayoutX(34.0);
-        }
-        player_points.setText(String.valueOf(playerScore));
-
-    }
-
-    private void updateTablePoints() {
-        table_points.setText(String.valueOf(dealerScore));
-        if(dealerScore >= 10) {
-            table_points.setLayoutX(34.0);
-        }  
-    }
+    // private void updatePlayerScore(int cardValue) {
+    //     playerScore += cardValue;
+    //     if(playerScore >= 10) {
+    //         player_points.setLayoutX(34.0);
+    //     }
+    //     player_points.setText(String.valueOf(playerScore));
+    // }
 
     private void drawDealerCard(){
-        int cardValue = deck.remove(0);
-        dealerScore += cardValue;
+        int cardValue = deck.removeCard();
+        dealer.updateScore(cardValue, dealer.getScore());
 
-        if(dealerScore > 21) {
-            updateTablePoints();
+        if(dealer.getScore() > 21) {
+            dealer.updatePoints(table_points, dealer.getScore());
             turn_definer.setText("JOGADOR VENCEU");
             endGame(); 
         }
@@ -98,7 +88,7 @@ public class Play {
 
     @FXML
     void askCard(ActionEvent event){
-        int cardValue = deck.remove(0);
+        int cardValue = deck.removeCard();
         if(cardValue == 1){
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Escolha uma opção");
@@ -113,25 +103,24 @@ public class Play {
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == buttonTypeOne){
                 // ... user chose "1"
-                updatePlayerScore(1);
+                player.updateScore(1, player.getScore(), player_points);
             } else if (result.get() == buttonTypeEleven) {
                 // ... user chose "11"
-                updatePlayerScore(11);
+                player.updateScore(11, player.getScore(), player_points);
             }
         }else if(cardValue > 10){
-            updatePlayerScore(10);
+            player.updateScore(10, player.getScore(), player_points);
         }else{
-            updatePlayerScore(cardValue);
+            player.updateScore(cardValue, player.getScore(), player_points);
         }
         
         updateCardImage(cardValue);
 
-        if (playerScore == 21) {
-            updateTablePoints();
+        if (player.getScore() == 21) {
+            dealer.updatePoints(table_points, dealer.getScore());
             turn_definer.setText("JOGADOR VENCEU");
             endGame();
-        }else if (playerScore > 21) {
-            updateTablePoints();
+        }else if (player.getScore() > 21) {
             turn_definer.setText("MESA VENCEU");
             endGame();
         }
@@ -148,18 +137,14 @@ public class Play {
     void passTurn(ActionEvent event){
         btn_ask_card.setDisable(true);
         btn_pass.setDisable(true);
-        while (dealerScore < 12) {
+        while (dealer.getScore() < 12) {
             drawDealerCard();
         }
 
-        table_points.setText(String.valueOf(dealerScore));
-        if(dealerScore >= 10) {
-            table_points.setLayoutX(34.0);
-        }
-        // updateTablePoints();
-        if (dealerScore > 21 || playerScore > dealerScore) {
+        dealer.updatePoints(table_points, dealer.getScore());
+        if (dealer.getScore() > 21 || player.getScore() > dealer.getScore()) {
             turn_definer.setText("JOGADOR VENCEU");
-        } else if (playerScore < dealerScore) {
+        } else if (player.getScore() < dealer.getScore()) {
             turn_definer.setText("MESA VENCEU");
         } else {
             turn_definer.setText("EMPATE");
@@ -174,14 +159,14 @@ public class Play {
         btn_ask_card.setDisable(false);
         btn_pass.setDisable(false);
         current_card.setImage(newGame);
-        playerScore = 0;
-        dealerScore = 0;
+        player.setScore(0);
+        dealer.setScore(0);
         player_points.setLayoutX(67.0);
         table_points.setLayoutX(67.0);
         player_points.setText("0");
         table_points.setText("?");
         turn_definer.setText("!BLACKJACK!");
-        initializeDeck();
+        deck.initializeDeck();
     }
 
     private void endGame() {

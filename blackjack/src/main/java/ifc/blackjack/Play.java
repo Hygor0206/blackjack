@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
 public class Play {
@@ -38,6 +39,14 @@ public class Play {
 
     @FXML
     private Text turn_definer;
+
+    @FXML
+    private Pane pop_up;
+
+    @FXML
+    public void initialize() {
+        pop_up.setVisible(false);
+    }
 
     private List<Integer> deck;
     private int playerScore;
@@ -71,12 +80,16 @@ public class Play {
 
     private void updatePlayerScore(int cardValue) {
         playerScore += cardValue;
+        if(playerScore >= 10) {
+            player_points.setLayoutX(34.0);
+        }
         player_points.setText(String.valueOf(playerScore));
+
     }
 
-    private void updateTablePoints() {
-        table_points.setText("Dealer: " + dealerScore + " | Player: " + playerScore);
-    }
+    // private void updateTablePoints() {
+        
+    // }
 
     private void drawDealerCard() {
         int cardValue = deck.remove(0);
@@ -89,8 +102,6 @@ public class Play {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        updateTablePoints();
-        turn_definer.setText("Dealer: " + dealerScore);
     }
 
     @FXML
@@ -101,7 +112,11 @@ public class Play {
         updateCardImage(cardValue);
 
         if (playerScore > 21) {
-            turn_definer.setText("Player Busted! Dealer Wins!");
+            table_points.setText(String.valueOf(dealerScore));
+            if(dealerScore >= 10) {
+                table_points.setLayoutX(34.0);
+            }
+            turn_definer.setText("MESA VENCEU");
             endGame();
         } else {
             btn_ask_card.setDisable(false);
@@ -110,13 +125,13 @@ public class Play {
     }
 
     private void updateCardImage(int cardValue) {
-        String cardFileName;
-        if (cardValue >= 2 && cardValue <= 10) {
-            cardFileName = cardValue + "c.png";
+        String cardFile;
+        if (cardValue >= 1 && cardValue <= 10) {
+            cardFile = "cards/" +cardValue + "c.png";
         } else {
-            cardFileName = "10c.png";
+            cardFile = "10c.png";
         }
-        Image cardImage = new Image(getClass().getResourceAsStream("/imgs/" + cardFileName));
+        Image cardImage = new Image(getClass().getResourceAsStream(cardFile));
         current_card.setImage(cardImage);
     }
 
@@ -128,30 +143,35 @@ public class Play {
             drawDealerCard();
         }
 
-        updateTablePoints();
-        Platform.runLater(() -> {
-            if (dealerScore > 21 || playerScore > dealerScore) {
-                turn_definer.setText("Player Wins!");
-            } else if (playerScore < dealerScore) {
-                turn_definer.setText("Dealer Wins!");
-            } else {
-                turn_definer.setText("It's a Tie!");
-            }
+        table_points.setText(String.valueOf(dealerScore));
+        if(dealerScore >= 10) {
+            table_points.setLayoutX(34.0);
+        }
+        // updateTablePoints();
+        if (dealerScore > 21 || playerScore > dealerScore) {
+            turn_definer.setText("JOGADOR VENCEU");
+        } else if (playerScore < dealerScore) {
+            turn_definer.setText("MESA VENCEU");
+        } else {
+            turn_definer.setText("EMPATE");
+        }
 
-            endGame();
-
-            btn_ask_card.setDisable(false);
-            btn_pass.setDisable(false);
-        });
+        endGame();
     }
 
     @FXML
     void resetGame(ActionEvent event) {
+        Image newGame = new Image(getClass().getResourceAsStream("cards/fundo.png"));
+        btn_ask_card.setDisable(false);
+        btn_pass.setDisable(false);
+        current_card.setImage(newGame);
         playerScore = 0;
         dealerScore = 0;
+        player_points.setLayoutX(67.0);
+        table_points.setLayoutX(67.0);
         player_points.setText("0");
-        table_points.setText("Dealer: 0 | Player: 0");
-        turn_definer.setText("");
+        table_points.setText("?");
+        turn_definer.setText("!BLACKJACK!");
         initializeDeck();
     }
 

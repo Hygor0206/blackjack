@@ -14,7 +14,7 @@ public class Player {
         this.score += cardValue;
         updatePoints(player, this.score);
     }
-
+    
     public void updateScore(int cardValue, int score) {
         this.score += cardValue;
     }

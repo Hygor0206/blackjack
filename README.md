@@ -35,4 +35,4 @@ It's up to each player to decide whether an ace is worth 1 or 11. Face cards are
 ##
 
 ## Diagrama de Classes
-![Diagrama de Classes](blackjack_diagram.png)
+![Diagrama de Classes](diagram.png)

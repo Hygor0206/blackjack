@@ -1,10 +1,7 @@
 package ifc.blackjack;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -46,34 +43,7 @@ public class Play {
     private Player dealer = new Player();
 
     public Play() {
-        
     }
-
-    // private void initializeDeck() {
-    //     deck = new ArrayList<>();
-    //     for (int i = 1; i <= 13; i++) {
-    //         deck.add(i);
-    //     }
-    //     shuffleDeck();
-    // }
-
-    // private void shuffleDeck() {
-    //     Random rand = new Random();
-    //     for (int i = 0; i < deck.size(); i++) {
-    //         int randomIndex = i + rand.nextInt(deck.size() - i);
-    //         int temp = deck.get(i);
-    //         deck.set(i, deck.get(randomIndex));
-    //         deck.set(randomIndex, temp);
-    //     }
-    // }
-
-    // private void updatePlayerScore(int cardValue) {
-    //     playerScore += cardValue;
-    //     if(playerScore >= 10) {
-    //         player_points.setLayoutX(34.0);
-    //     }
-    //     player_points.setText(String.valueOf(playerScore));
-    // }
 
     private void drawDealerCard(){
         int cardValue = deck.removeCard();
@@ -137,6 +107,7 @@ public class Play {
     void passTurn(ActionEvent event){
         btn_ask_card.setDisable(true);
         btn_pass.setDisable(true);
+        
         while (dealer.getScore() < 12) {
             drawDealerCard();
         }

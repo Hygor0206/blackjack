@@ -21,3 +21,18 @@ Each participant tries to beat the dealer by getting a count close to or equal t
 
 ## Card values / Scoring :dart:
 It's up to each player to decide whether an ace is worth 1 or 11. Face cards are worth 10 and any other card is worth its pip value.
+
+## Screenshots
+![Menu](screenshots/imagem1.png)
+###
+![Regras](screenshots/imagem2.png)
+###
+![Gameplay](screenshots/imagem3.png)
+###
+![Gameplay](screenshots/imagem5.png)
+###
+![Gameplay](screenshots/imagem6.png)
+##
+
+## Diagrama de Classes
+![Diagrama de Classes](diagram.png)

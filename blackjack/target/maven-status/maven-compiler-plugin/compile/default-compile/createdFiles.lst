@@ -1,1 +1,7 @@
+ifc\blackjack\Player.class
+ifc\blackjack\MainMenu.class
+ifc\blackjack\Play.class
+ifc\blackjack\Deck.class
 ifc\blackjack\App.class
+module-info.class
+ifc\blackjack\Rules.class

@@ -72,10 +72,8 @@ public class Play {
     
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == buttonTypeOne){
-                // ... user chose "1"
                 player.updateScore(1, player.getScore(), player_points);
             } else if (result.get() == buttonTypeEleven) {
-                // ... user chose "11"
                 player.updateScore(11, player.getScore(), player_points);
             }
         }else if(cardValue > 10){
@@ -84,7 +82,7 @@ public class Play {
             player.updateScore(cardValue, player.getScore(), player_points);
         }
         
-        updateCardImage(cardValue);
+        deck.updateCardImage(cardValue, current_card);
 
         if (player.getScore() == 21) {
             dealer.updatePoints(table_points, dealer.getScore());
@@ -94,13 +92,6 @@ public class Play {
             turn_definer.setText("MESA VENCEU");
             endGame();
         }
-    }
-
-    private void updateCardImage(int cardValue) {
-        String cardFile;
-        cardFile = "cards/" +cardValue + "c.png";
-        Image cardImage = new Image(getClass().getResourceAsStream(cardFile));
-        current_card.setImage(cardImage);
     }
 
     @FXML

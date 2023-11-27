@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 public class Deck {
     private List<Integer> deck;
     
@@ -30,7 +33,13 @@ public class Deck {
     }
 
     public int removeCard(){
-        int cardNumber;
-        return cardNumber = this.deck.remove(0);
+        return this.deck.remove(0);
+    }
+
+    protected void updateCardImage(int cardValue, ImageView card) {
+        String cardFile;
+        cardFile = "cards/" +cardValue + "c.png";
+        Image cardImage = new Image(getClass().getResourceAsStream(cardFile));
+        card.setImage(cardImage);
     }
 }

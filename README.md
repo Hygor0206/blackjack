@@ -29,9 +29,9 @@ It's up to each player to decide whether an ace is worth 1 or 11. Face cards are
 ###
 ![Gameplay](screenshots/imagem3.png)
 ###
-![Gameplay](screenshots/imagem5.png)
+![Gameplay](screenshots/imagem4.png)
 ###
-![Gameplay](screenshots/imagem6.png)
+![Gameplay](screenshots/imagem5.png)
 ##
 
 ## Diagrama de Classes
